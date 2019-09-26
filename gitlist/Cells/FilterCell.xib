@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilterCell" rowHeight="63" id="KGk-i7-Jjw" customClass="FilterCell" customModule="gitlist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="361" height="62.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTRANDO:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z40-Ac-IsP">
+                        <rect key="frame" x="8" y="0.0" width="353" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rm-wv-O3M">
+                        <rect key="frame" x="8" y="22.5" width="345" height="36"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyk-QY-1x5">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="36"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NTw-DX-yPI">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUU-RA-adm" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="db2-ae-KrI"/>
+                                                </constraints>
+                                                <state key="normal" title="DATA"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvi-Pe-Sqo" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
+                                                <rect key="frame" x="45" y="0.0" width="94" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="cAX-yP-tN5"/>
+                                                </constraints>
+                                                <state key="normal" title="SEGUIDORES"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-2O-PH9" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
+                                                <rect key="frame" x="147" y="0.0" width="74" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="4Yv-Fp-m57"/>
+                                                </constraints>
+                                                <state key="normal" title="ESTRELAS"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fky-qy-UIh" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
+                                                <rect key="frame" x="229" y="0.0" width="87" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="gNH-RC-VWh"/>
+                                                </constraints>
+                                                <state key="normal" title="CRESCENTE"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-CY-LSX" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
+                                                <rect key="frame" x="324" y="0.0" width="106" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="5CU-Z7-Aas"/>
+                                                </constraints>
+                                                <state key="normal" title="DECRESCENTE"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="NTw-DX-yPI" firstAttribute="top" secondItem="Gyk-QY-1x5" secondAttribute="top" id="3Fy-Ya-mXf"/>
+                                    <constraint firstItem="NTw-DX-yPI" firstAttribute="leading" secondItem="Gyk-QY-1x5" secondAttribute="leading" id="CJX-JI-KzG"/>
+                                    <constraint firstAttribute="bottom" secondItem="NTw-DX-yPI" secondAttribute="bottom" id="Ky1-dm-Yuo"/>
+                                    <constraint firstAttribute="trailing" secondItem="NTw-DX-yPI" secondAttribute="trailing" id="Lc5-0v-cQi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Gyk-QY-1x5" secondAttribute="trailing" id="2RO-JE-hg4"/>
+                            <constraint firstAttribute="height" constant="36" id="FI7-3l-47u"/>
+                            <constraint firstItem="Gyk-QY-1x5" firstAttribute="top" secondItem="9Rm-wv-O3M" secondAttribute="top" id="IxR-Ow-uX6"/>
+                            <constraint firstItem="Gyk-QY-1x5" firstAttribute="leading" secondItem="9Rm-wv-O3M" secondAttribute="leading" id="Jxe-CB-QWl"/>
+                            <constraint firstAttribute="bottom" secondItem="Gyk-QY-1x5" secondAttribute="bottom" id="x0T-IK-ann"/>
+                        </constraints>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="9Rm-wv-O3M" secondAttribute="trailing" constant="8" id="2LQ-Yt-WVo"/>
+                    <constraint firstAttribute="trailing" secondItem="Z40-Ac-IsP" secondAttribute="trailing" id="Uvs-QL-2ft"/>
+                    <constraint firstItem="Z40-Ac-IsP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="X4e-c4-kuY"/>
+                    <constraint firstItem="9Rm-wv-O3M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jKe-B3-3Jy"/>
+                    <constraint firstItem="Z40-Ac-IsP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="olB-Oq-UOh"/>
+                    <constraint firstItem="9Rm-wv-O3M" firstAttribute="top" secondItem="Z40-Ac-IsP" secondAttribute="bottom" constant="8" id="xWK-Sg-G0g"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.92156862745098034" green="0.92549019607843142" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="77.536231884057983" y="41.852678571428569"/>
+        </tableViewCell>
+    </objects>
+</document>
