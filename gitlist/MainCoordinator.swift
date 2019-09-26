@@ -13,7 +13,7 @@ protocol Coordinator {
     func start()
 }
 
-class AppCoordinator: Coordinator {
+class MainCoordinator: Coordinator {
 //    private let disposeBag = DisposeBag()
     private var window = UIWindow(frame: UIScreen.main.bounds)
     
