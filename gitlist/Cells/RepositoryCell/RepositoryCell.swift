@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RepositoryCell: UITableViewCell {
+class RepositoryCell: ConfigurableCell {
     
     // MARK: - IBOutlets
     
@@ -26,7 +26,7 @@ class RepositoryCell: UITableViewCell {
     
     // MARK: - Public properties
     
-    var repository: Repository?
+    var repositoryCellViewModel: RepositoryCellViewModel?
     
     // MARK: - View lifecycle
 
@@ -41,29 +41,26 @@ class RepositoryCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func configure(repository: Repository) {
-        self.repository = repository
+    override func configure(viewModel: CellViewModel) {
+        guard let viewModel = viewModel as? RepositoryCellViewModel else { return }
+
+        repositoryCellViewModel = viewModel
+
         loadImage()
-        nameLabel.text = repository.name
-        starsLabel.text = "\(repository.stargazersCount)"
-        followersLabel.text = "\(repository.watchersCount)"
-        dateLabel.text = repository.updatedAt
+        nameLabel.text = viewModel.repository.name
+        starsLabel.text = "\(viewModel.repository.stargazersCount)"
+        followersLabel.text = "\(viewModel.repository.watchersCount)"
+        dateLabel.text = "\(viewModel.repository.updatedAt.getDifferenceInDays(date: Date()))"
     }
     
     // MARK: - Private methods
     
     private func loadImage() {
-        guard let repo = repository else { return }
-        
-        URLSession.shared.rx
-            .response(request: URLRequest(url: URL(string: repo.owner.avatarUrl)!))
-            .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] response in
-                DispatchQueue.main.async {
-                    self?.iconImageView.image = UIImage(data: response.data)
-                }
-            })
-            .disposed(by: disposeBag)
+        _ = repositoryCellViewModel?.image.subscribe(onNext: { image in
+            DispatchQueue.main.async {
+                self.iconImageView.image = image
+            }
+        })
     }
     
 }

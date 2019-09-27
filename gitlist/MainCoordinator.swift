@@ -52,7 +52,7 @@ class MainCoordinator: Coordinator {
     
     private func showDetails(repository: Repository) {
         let detailViewController = DetailViewController.loadFromNib()
-        detailViewController.repository = repository
+        detailViewController.viewModel = DetailViewModel(view: detailViewController, repository: repository)
         navigationController.pushViewController(detailViewController, animated: true)
     }
 }

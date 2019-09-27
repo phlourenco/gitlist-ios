@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class SearchAPI: SearchAPIDataSource {
+class GithubAPI: GithubAPIDataSource {
     
     func searchRepositories(query: String, sort: String, page: Int, itemsPerPage: Int) -> Observable<SearchResults<[Repository]>> {
         let params: [String: Any] = [
@@ -20,6 +20,10 @@ class SearchAPI: SearchAPIDataSource {
         ]
         
         return HTTPClient().request(url: "https://api.github.com/search/repositories", method: .get, parameters: params, headers: nil, parseAs: SearchResults<[Repository]>.self, keyDecodingStrategy: .convertFromSnakeCase)
+    }
+    
+    func getReadme(ownerName: String, repositoryName: String) -> Observable<RepositoryContent> {
+        return HTTPClient().request(url: "https://api.github.com/repos/\(ownerName)/\(repositoryName)/readme", method: .get, headers: nil, parseAs: RepositoryContent.self, keyDecodingStrategy: .convertFromSnakeCase)
     }
     
 }

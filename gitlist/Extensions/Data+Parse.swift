@@ -13,6 +13,17 @@ extension Data {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = strategy
+            decoder.dateDecodingStrategy = .custom({ decoder -> Date in
+                let container = try decoder.singleValueContainer()
+                let dateStr = try container.decode(String.self)
+                let formatter = ISO8601DateFormatter()
+                formatter.formatOptions = [.withFullDate,
+                                           .withTime,
+                                           .withDashSeparatorInDate,
+                                           .withColonSeparatorInTime]
+                return formatter.date(from: dateStr) ?? Date()
+
+            })
             let resp = try decoder.decode(T.self, from: self)
             return resp
         } catch {

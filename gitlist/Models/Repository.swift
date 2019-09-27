@@ -12,11 +12,16 @@ struct Repository: Codable {
     var name: String
     var stargazersCount: Int
     var watchersCount: Int
-    var updatedAt: String
+    var updatedAt: Date
     var owner: Owner
 }
 
 struct Owner: Codable {
     var login: String
     var avatarUrl: String
+}
+
+struct RepositoryContent: Codable {
+    var downloadUrl: URL
+    var content: String
 }

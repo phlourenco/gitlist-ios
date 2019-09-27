@@ -10,6 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol DetailView: BaseDisplayLogic {
+    func showReadme(_ str: String)
+}
+
 class DetailViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -19,6 +23,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var readmeTextView: UITextView!
     
     // MARK: - Private properties
     
@@ -26,29 +31,29 @@ class DetailViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var repository: Repository?
+    var viewModel: DetailViewModel?
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) 
         fillDetails()
+        viewModel?.getReadme()
     }
     
     // MARK: - Private methods
     
     private func fillDetails() {
-        guard let repo = repository else { return }
+        guard let repo = viewModel?.repository else { return }
         
         nameLabel.text = repo.name
         starsLabel.text = "\(repo.stargazersCount)"
         followersLabel.text = "\(repo.watchersCount)"
-        dateLabel.text = repo.updatedAt
+        dateLabel.text = "\(repo.updatedAt.getDifferenceInDays(date: Date()))"
 
         
         URLSession.shared.rx
@@ -69,4 +74,12 @@ class DetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+}
+
+extension DetailViewController: DetailView {
+    
+    func showReadme(_ str: String) {
+        readmeTextView.text = str
+    }
+    
 }

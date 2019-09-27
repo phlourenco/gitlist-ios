@@ -23,33 +23,38 @@ class ListViewModel {
     var showFilter = PublishSubject<Void>()
     var showDetails = PublishSubject<Repository>()
     
-    var repositoryList: [Repository] = []
-
-    
     // MARK: - Private properties
     
     private let view: ListView?
-    private var dataSource: SearchAPIDataSource
+    private var dataSource: GithubAPIDataSource
+    private var repositoryList: [Repository] = []
     private let itemsPerPage = 20
     
     // MARK: - Constructor
     
-    init(view: ListView, dataSource: SearchAPIDataSource = SearchAPI()) {
+    init(view: ListView, dataSource: GithubAPIDataSource = GithubAPI()) {
         self.view = view
         self.dataSource = dataSource
     }
     
     // MARK: - Public methods
     
-    func getRepositories(next: Bool, showLoading: Bool) {
+    func getSections() -> [SectionBase] {
+        return [
+            FilterSection(),
+            RepositorySection(repositories: repositoryList)
+        ]
+    }
+    
+    func fetchRepositories(next: Bool) {
         let page = next ? getNextPageNumber() : 1
         
+        if !next {
+            view?.showScreenLoading()
+        } else {
+            view?.showPaginationLoading()
+        }
         
-        
-//        let isScreenLoading = !next
-//        if showLoading {
-//            presenter?.presentLoading(screen: isScreenLoading)
-//        }
         let request = Request(query: "language:swift", sort: "stars", page: page, itemsPerPage: itemsPerPage)
         
         _ = dataSource.searchRepositories(query: request.query, sort: request.sort, page: request.page, itemsPerPage: request.itemsPerPage).subscribe(onNext: { results in
@@ -60,39 +65,26 @@ class ListViewModel {
         }, onError: handleError)
     }
     
-    
-//    func fetchRepositories(next: Bool, showLoading: Bool) {
-//        let page = next ? getNextPageNumber() : 1
-//
-//        let isScreenLoading = !next
-//        if showLoading {
-//            presenter?.presentLoading(screen: isScreenLoading)
-//        }
-//
-//        let request = RepositoryList.Request(query: "language:swift", sort: "stars", page: page, itemsPerPage: itemsPerPage)
-//        worker.getRepositories(request: request)
-//            .done({ (results) in
-//                if !next {
-//                    self.repositoryList.removeAll()
-//                }
-//                self.handleResults(results)
-//            })
-//            .catch(handleError)
-//            .finally {
-//                self.presenter?.stopLoading(screen: isScreenLoading)
-//        }
-//    }
+    func fetchMore(indexPath: IndexPath) {
+        guard getSections()[indexPath.section].getViewModel(forRow: indexPath.row) is RepositoryCellViewModel, indexPath.row == repositoryList.count-1 else { return }
+        
+        fetchRepositories(next: true)
+    }
     
     // MARK: - Private methods
     
     private func handleResults(_ results: SearchResults<[Repository]>) {
         repositoryList.append(contentsOf: results.items)
         view?.showList()
+        self.view?.hideScreenLoading()
+        self.view?.hidePaginationLoading()
     }
 
     private func handleError(_ error: Error) {
         print("ERROR \(error) \(error.localizedDescription)")
 //        presenter?.presentError(error: error)
+        self.view?.hideScreenLoading()
+        self.view?.hidePaginationLoading()
     }
     
     private func getNextPageNumber() -> Int {
