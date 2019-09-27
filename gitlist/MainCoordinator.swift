@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
@@ -14,7 +15,7 @@ protocol Coordinator {
 }
 
 class MainCoordinator: Coordinator {
-//    private let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     private var window = UIWindow(frame: UIScreen.main.bounds)
     
     var navigationController = UINavigationController()
@@ -29,20 +30,28 @@ class MainCoordinator: Coordinator {
     
     func showList() {
         let listViewController = ListViewController.loadFromNib()
-//
-//        // Coordinator initializes and injects viewModel
-//        let signInViewModel = SignInViewModel(authentication: SessionService())
-//        signInViewController.viewModel = signInViewModel
-//
-//        // Coordinator subscribes to events and decides when and how to navigate
-//        signInViewModel.didSignIn
-//            .subscribe(onNext: {
-//                // Navigate to dashboard
-//                print("Signed In")
-//            })
-//            .disposed(by: self.disposeBag)
         
-//        self.navigationController.viewControllers = [listViewController]
-        self.navigationController.pushViewController(listViewController, animated: true)
+        let viewModel = ListViewModel()
+        viewModel.showFilter.subscribe(onNext: { _ in
+            self.showFilter()
+        }).disposed(by: disposeBag)
+        
+        viewModel.showDetails.subscribe(onNext: { _ in
+            self.showDetails()
+        }).disposed(by: disposeBag)
+        
+        listViewController.viewModel = viewModel
+        
+        navigationController.pushViewController(listViewController, animated: true)
+    }
+    
+    private func showFilter() {
+        let filterViewController = FilterViewController.loadFromNib()
+        navigationController.pushViewController(filterViewController, animated: true)
+    }
+    
+    private func showDetails() {
+        let detailViewController = DetailViewController.loadFromNib()
+        navigationController.pushViewController(detailViewController, animated: true)
     }
 }

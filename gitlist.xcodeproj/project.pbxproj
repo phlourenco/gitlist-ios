@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BA1D449233D8852000A1F70 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEC340D233D8298003CFCA3 /* RxBlocking.framework */; };
+		4BA1D44A233D8852000A1F70 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEC3410233D8298003CFCA3 /* RxCocoa.framework */; };
+		4BA1D44C233D8852000A1F70 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEC3411233D8298003CFCA3 /* RxSwift.framework */; };
+		4BA1D44E233D890F000A1F70 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEC340E233D8298003CFCA3 /* RxRelay.framework */; };
 		4BE6CDA3233B10680079B327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CDA2233B10680079B327 /* AppDelegate.swift */; };
 		4BE6CDAA233B10690079B327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CDA9233B10690079B327 /* Assets.xcassets */; };
 		4BE6CDAD233B10690079B327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CDAB233B10690079B327 /* LaunchScreen.storyboard */; };
@@ -37,7 +41,8 @@
 		4BE6CE0C233C47E80079B327 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CE0A233C47E80079B327 /* FilterCell.swift */; };
 		4BE6CE0D233C47E80079B327 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CE0B233C47E80079B327 /* FilterCell.xib */; };
 		4BE6CE0F233C4A6F0079B327 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CE0E233C4A6F0079B327 /* OutlineButton.swift */; };
-		4BE6CE11233C55E30079B327 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CE10233C55E30079B327 /* AppCoordinator.swift */; };
+		4BEC3409233D819D003CFCA3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC3408233D819D003CFCA3 /* MainCoordinator.swift */; };
+		4BEC340B233D823D003CFCA3 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC340A233D823D003CFCA3 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +99,13 @@
 		4BE6CE0A233C47E80079B327 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		4BE6CE0B233C47E80079B327 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		4BE6CE0E233C4A6F0079B327 /* OutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineButton.swift; sourceTree = "<group>"; };
-		4BE6CE10233C55E30079B327 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4BEC3408233D819D003CFCA3 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		4BEC340A233D823D003CFCA3 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		4BEC340D233D8298003CFCA3 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		4BEC340E233D8298003CFCA3 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		4BEC340F233D8298003CFCA3 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		4BEC3410233D8298003CFCA3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		4BEC3411233D8298003CFCA3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA1D449233D8852000A1F70 /* RxBlocking.framework in Frameworks */,
+				4BA1D44A233D8852000A1F70 /* RxCocoa.framework in Frameworks */,
+				4BA1D44E233D890F000A1F70 /* RxRelay.framework in Frameworks */,
+				4BA1D44C233D8852000A1F70 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +144,7 @@
 				4BE6CDB6233B106A0079B327 /* gitlistTests */,
 				4BE6CDC1233B106A0079B327 /* gitlistUITests */,
 				4BE6CDA0233B10680079B327 /* Products */,
+				4BEC340C233D8298003CFCA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,11 +164,12 @@
 				4BE6CDDC233C18A30079B327 /* Github_Teste.md */,
 				4BE6CDD8233C17A40079B327 /* ListViewController.swift */,
 				4BE6CDD9233C17A40079B327 /* ListViewController.xib */,
+				4BEC340A233D823D003CFCA3 /* ListViewModel.swift */,
 				4BE6CDFF233C3A790079B327 /* FilterViewController.swift */,
 				4BE6CE00233C3A790079B327 /* FilterViewController.xib */,
 				4BE6CE05233C43BE0079B327 /* DetailViewController.swift */,
 				4BE6CE06233C43BE0079B327 /* DetailViewController.xib */,
-				4BE6CE10233C55E30079B327 /* AppCoordinator.swift */,
+				4BEC3408233D819D003CFCA3 /* MainCoordinator.swift */,
 				4BE6CDE2233C1DB90079B327 /* Cells */,
 				4BE6CDEE233C28020079B327 /* Components */,
 				4BE6CDEB233C24FF0079B327 /* Extensions */,
@@ -245,6 +262,18 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4BEC340C233D8298003CFCA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BEC340D233D8298003CFCA3 /* RxBlocking.framework */,
+				4BEC3410233D8298003CFCA3 /* RxCocoa.framework */,
+				4BEC340E233D8298003CFCA3 /* RxRelay.framework */,
+				4BEC3411233D8298003CFCA3 /* RxSwift.framework */,
+				4BEC340F233D8298003CFCA3 /* RxTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,6 +284,7 @@
 				4BE6CD9B233B10680079B327 /* Sources */,
 				4BE6CD9C233B10680079B327 /* Frameworks */,
 				4BE6CD9D233B10680079B327 /* Resources */,
+				4BA1D448233D8556000A1F70 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -383,6 +413,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4BA1D448233D8556000A1F70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BE6CD9B233B10680079B327 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -393,14 +448,15 @@
 				4BE6CE04233C42800079B327 /* UIView.swift in Sources */,
 				4BE6CE07233C43BE0079B327 /* DetailViewController.swift in Sources */,
 				4BE6CDEA233C208D0079B327 /* ResetFilterView.swift in Sources */,
+				4BEC340B233D823D003CFCA3 /* ListViewModel.swift in Sources */,
 				4BE6CE0C233C47E80079B327 /* FilterCell.swift in Sources */,
 				4BE6CE01233C3A790079B327 /* FilterViewController.swift in Sources */,
 				4BE6CDF2233C2C450079B327 /* UIColor.swift in Sources */,
 				4BE6CDA3233B10680079B327 /* AppDelegate.swift in Sources */,
 				4BE6CE0F233C4A6F0079B327 /* OutlineButton.swift in Sources */,
 				4BE6CDDA233C17A40079B327 /* ListViewController.swift in Sources */,
-				4BE6CE11233C55E30079B327 /* AppCoordinator.swift in Sources */,
 				4BE6CDE8233C20760079B327 /* FilterView.swift in Sources */,
+				4BEC3409233D819D003CFCA3 /* MainCoordinator.swift in Sources */,
 				4BE6CDE0233C19040079B327 /* RepositoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +626,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8W67XPP2J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/gitlist/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -589,6 +649,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8W67XPP2J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/gitlist/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import RxSwift
+
+class ListViewModel {
+    
+    var showFilter = PublishSubject<Void>()
+    var showDetails = PublishSubject<Void>()
+    
+}

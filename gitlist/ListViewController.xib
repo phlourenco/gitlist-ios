@@ -31,6 +31,9 @@
                         <navigationItem title="Github" id="65W-zJ-M4y">
                             <barButtonItem key="rightBarButtonItem" title="Item" image="filter" id="8Av-jv-w1z">
                                 <color key="tintColor" red="0.3921568627" green="1" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="filterAction:" destination="-1" id="YBI-nk-xm5"/>
+                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>

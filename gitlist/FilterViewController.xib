@@ -29,21 +29,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBZ-tm-fbg">
-                    <rect key="frame" x="0.0" y="20" width="375" height="140"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="140" id="LFD-3g-5Vq"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTROS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvY-WZ-Ldq">
-                    <rect key="frame" x="16" y="195" width="43" height="13"/>
+                    <rect key="frame" x="16" y="80" width="43" height="13"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="10"/>
                     <color key="textColor" red="0.63137254901960782" green="0.65098039215686276" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezX-3E-eDL">
-                    <rect key="frame" x="16" y="218" width="343" height="48"/>
+                    <rect key="frame" x="16" y="103" width="343" height="48"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1KO-yz-NGV">
                             <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
@@ -97,13 +90,13 @@
                     </constraints>
                 </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ORDEM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-DA-qlw">
-                    <rect key="frame" x="16" y="328" width="41" height="13"/>
+                    <rect key="frame" x="16" y="213" width="41" height="13"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="10"/>
                     <color key="textColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-qb-faw">
-                    <rect key="frame" x="16" y="351" width="343" height="48"/>
+                    <rect key="frame" x="16" y="236" width="343" height="48"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlN-dj-WJY">
                             <rect key="frame" x="0.0" y="0.0" width="278" height="40"/>
@@ -146,7 +139,7 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oq7-nn-stv">
-                    <rect key="frame" x="0.0" y="301" width="375" height="1"/>
+                    <rect key="frame" x="0.0" y="186" width="375" height="1"/>
                     <color key="backgroundColor" red="0.85098039215686272" green="0.85882352941176465" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="s3u-T3-egX"/>
@@ -168,24 +161,49 @@
                             <real key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="applyAction:" destination="-1" eventType="touchUpInside" id="WB9-dY-aAc"/>
+                    </connections>
                 </button>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OO5-ea-DqT">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Filtrar" id="AIg-nh-yIw">
+                            <barButtonItem key="leftBarButtonItem" image="close" id="d8U-CI-usT">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="backAction:" destination="-1" id="4bQ-0q-eSi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Limpar" id="Sdv-Fd-4zJ">
+                                <color key="tintColor" red="0.3921568627" green="1" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="clearAction:" destination="-1" id="ISu-rb-sJA"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="RvY-WZ-Ldq" firstAttribute="top" secondItem="sBZ-tm-fbg" secondAttribute="bottom" constant="35" id="5TA-Pr-08p"/>
                 <constraint firstItem="Wfz-DA-qlw" firstAttribute="top" secondItem="Oq7-nn-stv" secondAttribute="bottom" constant="26" id="7k0-RY-WO0"/>
                 <constraint firstItem="Oq7-nn-stv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Din-FO-ccg"/>
                 <constraint firstItem="Nai-zn-ZHT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ej5-KS-YCy"/>
+                <constraint firstItem="OO5-ea-DqT" firstAttribute="top" secondItem="tBf-0E-3Nm" secondAttribute="bottom" id="HwW-6i-1sA"/>
                 <constraint firstItem="n9S-qb-faw" firstAttribute="top" secondItem="Wfz-DA-qlw" secondAttribute="bottom" constant="10" id="S3a-Yw-2Gn"/>
                 <constraint firstItem="ezX-3E-eDL" firstAttribute="top" secondItem="RvY-WZ-Ldq" secondAttribute="bottom" constant="10" id="UCy-iL-CNt"/>
                 <constraint firstItem="n9S-qb-faw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Utp-Xg-bSJ"/>
-                <constraint firstItem="sBZ-tm-fbg" firstAttribute="top" secondItem="tBf-0E-3Nm" secondAttribute="bottom" id="ZPa-gt-8J1"/>
                 <constraint firstItem="tBf-0E-3Nm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aeu-OD-73F"/>
                 <constraint firstItem="Wfz-DA-qlw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="dST-0I-HcW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="tBf-0E-3Nm" secondAttribute="bottom" id="dcv-W8-GxS"/>
-                <constraint firstItem="sBZ-tm-fbg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g7Y-Bq-4An"/>
+                <constraint firstItem="RvY-WZ-Ldq" firstAttribute="top" secondItem="OO5-ea-DqT" secondAttribute="bottom" constant="16" id="gMB-iz-7Je"/>
                 <constraint firstItem="RvY-WZ-Ldq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="gm9-M0-FHA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sBZ-tm-fbg" secondAttribute="trailing" id="hAe-hr-sFj"/>
+                <constraint firstItem="OO5-ea-DqT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oIJ-kc-Bua"/>
                 <constraint firstItem="tBf-0E-3Nm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pWd-xH-ShM"/>
                 <constraint firstItem="tBf-0E-3Nm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pxm-d4-4y4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ezX-3E-eDL" secondAttribute="trailing" constant="16" id="qTs-FJ-LeG"/>
@@ -194,9 +212,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Nai-zn-ZHT" secondAttribute="bottom" constant="26" id="tk7-nQ-J0O"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n9S-qb-faw" secondAttribute="trailing" constant="16" id="wwI-Ir-dZQ"/>
                 <constraint firstItem="Oq7-nn-stv" firstAttribute="top" secondItem="ezX-3E-eDL" secondAttribute="bottom" constant="35" id="xeq-SG-abz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OO5-ea-DqT" secondAttribute="trailing" id="zcg-Uw-YPU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
+    <resources>
+        <image name="close" width="15" height="15"/>
+    </resources>
 </document>

@@ -10,15 +10,18 @@ import UIKit
 
 class ListViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Properties
+    
+    var viewModel: ListViewModel?
+    
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        navigationController?.navigationBar.items = [UINavigationItem(title: "dsadsadas")]
-        
-//        navigationController?.navigationBar.setItems([UINavigationItem(title: "dsadsadas")], animated: true)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,7 +31,11 @@ class ListViewController: UIViewController {
         tableView.register(UINib(nibName: "ResetFilterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ResetFilterView")
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
-
+    
+    @IBAction func filterAction(_ sender: Any) {
+        viewModel?.showFilter.onNext(())
+    }
+    
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -64,6 +71,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.showDetails.onNext(())
     }
     
 }

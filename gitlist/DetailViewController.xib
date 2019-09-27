@@ -31,9 +31,31 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5L0-RB-7t5">
                     <rect key="frame" x="0.0" y="20" width="375" height="140"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rne-ar-nLw">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <items>
+                                <navigationItem title="Detalhe" id="OuT-8x-u0e">
+                                    <barButtonItem key="leftBarButtonItem" image="back" id="Nt6-I6-dWD">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="-1" id="cFN-F6-lVC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="rne-ar-nLw" secondAttribute="trailing" id="K3S-oQ-2s3"/>
+                        <constraint firstItem="rne-ar-nLw" firstAttribute="top" secondItem="5L0-RB-7t5" secondAttribute="top" id="OzA-8I-bsW"/>
                         <constraint firstAttribute="height" constant="140" id="Vqu-tF-T09"/>
+                        <constraint firstItem="rne-ar-nLw" firstAttribute="leading" secondItem="5L0-RB-7t5" secondAttribute="leading" id="YBA-1q-nPE"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cD-VN-nfS">
@@ -64,6 +86,9 @@
                                     <real key="value" value="4"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="bBZ-YF-gme"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -94,4 +119,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="back" width="18" height="14"/>
+    </resources>
 </document>

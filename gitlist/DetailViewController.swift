@@ -16,7 +16,13 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func shareAction(_ sender: Any) {
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
