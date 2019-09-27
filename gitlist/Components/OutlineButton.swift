@@ -35,7 +35,7 @@ class OutlineButton: UIButton {
     }
     
     private func setupTitle(_ title: String?) {
-        let attText = NSMutableAttributedString(string: currentTitle ?? "", attributes: [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.baselineOffset: 2])
+        let attText = NSMutableAttributedString(string: title ?? "", attributes: [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.baselineOffset: 2])
         
         attText.append(NSMutableAttributedString(string: closeIcon, attributes: [NSAttributedString.Key.font: UIFont(name: "MaterialIcons-Regular", size: 16)!, NSAttributedString.Key.kern: 16, NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.baselineOffset: -2]))
         

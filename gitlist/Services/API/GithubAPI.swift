@@ -11,10 +11,11 @@ import RxSwift
 
 class GithubAPI: GithubAPIDataSource {
     
-    func searchRepositories(query: String, sort: String, page: Int, itemsPerPage: Int) -> Observable<SearchResults<[Repository]>> {
+    func searchRepositories(query: String, sort: String, order: String, page: Int, itemsPerPage: Int) -> Observable<SearchResults<[Repository]>> {
         let params: [String: Any] = [
             "q": query,
             "sort": sort,
+            "order": order,
             "page": page,
             "per_page": itemsPerPage
         ]

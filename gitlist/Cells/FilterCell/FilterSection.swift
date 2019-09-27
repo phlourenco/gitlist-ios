@@ -10,6 +10,12 @@ import Foundation
 
 class FilterSection: SectionBase {
     
+    let filter: Filter
+    
+    init(filter: Filter) {
+        self.filter = filter
+    }
+    
     func getNumberOfRows() -> Int {
         return 1
     }
@@ -19,7 +25,7 @@ class FilterSection: SectionBase {
     }
     
     func getViewModel(forRow row: Int) -> CellViewModel {
-        return FilterCellViewModel()
+        return FilterCellViewModel(filter: filter)
     }
     
 }

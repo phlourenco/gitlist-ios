@@ -9,11 +9,17 @@
 import Foundation
 import RxSwift
 
-struct Request {
-    var query: String
-    var sort: String
-    var page: Int
-    var itemsPerPage: Int
+enum Order: String {
+    case asc, desc
+}
+
+enum Sort: String {
+    case stars, forks, updated
+}
+
+struct Filter {
+    var order: Order
+    var sort: Sort
 }
 
 class ListViewModel {
@@ -30,6 +36,8 @@ class ListViewModel {
     private var repositoryList: [Repository] = []
     private let itemsPerPage = 20
     
+    var filter = Filter(order: .desc, sort: .stars)
+    
     // MARK: - Constructor
     
     init(view: ListView, dataSource: GithubAPIDataSource = GithubAPI()) {
@@ -41,7 +49,7 @@ class ListViewModel {
     
     func getSections() -> [SectionBase] {
         return [
-            FilterSection(),
+            FilterSection(filter: filter),
             RepositorySection(repositories: repositoryList)
         ]
     }
@@ -55,9 +63,7 @@ class ListViewModel {
             view?.showPaginationLoading()
         }
         
-        let request = Request(query: "language:swift", sort: "stars", page: page, itemsPerPage: itemsPerPage)
-        
-        _ = dataSource.searchRepositories(query: request.query, sort: request.sort, page: request.page, itemsPerPage: request.itemsPerPage).subscribe(onNext: { results in
+        _ = dataSource.searchRepositories(query: "language:swift", sort: filter.sort.rawValue, order: filter.order.rawValue, page: page, itemsPerPage: itemsPerPage).subscribe(onNext: { results in
             if !next {
                 self.repositoryList.removeAll()
             }
@@ -81,10 +87,9 @@ class ListViewModel {
     }
 
     private func handleError(_ error: Error) {
-        print("ERROR \(error) \(error.localizedDescription)")
-//        presenter?.presentError(error: error)
         self.view?.hideScreenLoading()
         self.view?.hidePaginationLoading()
+        self.view?.showError(title: "Erro", message: "Ocorreu um erro. Verifique sua conexão e tente novamente.")
     }
     
     private func getNextPageNumber() -> Int {

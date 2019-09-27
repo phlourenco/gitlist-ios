@@ -14,4 +14,30 @@ class FilterCellViewModel: CellViewModel {
         return 63
     }
     
+    let filter: Filter
+    
+    init(filter: Filter) {
+        self.filter = filter
+    }
+    
+    func getSortTitle() -> String {
+        switch filter.sort {
+        case .stars:
+            return "ESTRELAS"
+        case .forks:
+            return "SEGUIDORES"
+        case .updated:
+            return "DATA"
+        }
+    }
+    
+    func getOrderTitle() -> String {
+        switch filter.order {
+        case .asc:
+            return "CRESCENTE"
+        case .desc:
+            return "DECRESCENTE"
+        }
+    }
+    
 }

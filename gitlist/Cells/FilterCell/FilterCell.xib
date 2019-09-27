@@ -29,10 +29,10 @@
                         <rect key="frame" x="8" y="22.5" width="345" height="36"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyk-QY-1x5">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="36"/>
+                                <rect key="frame" x="0.0" y="0.0" width="151" height="36"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NTw-DX-yPI">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUU-RA-adm" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="37" height="36"/>
@@ -41,29 +41,8 @@
                                                 </constraints>
                                                 <state key="normal" title="DATA"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvi-Pe-Sqo" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="0.0" width="94" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="cAX-yP-tN5"/>
-                                                </constraints>
-                                                <state key="normal" title="SEGUIDORES"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-2O-PH9" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
-                                                <rect key="frame" x="147" y="0.0" width="74" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="4Yv-Fp-m57"/>
-                                                </constraints>
-                                                <state key="normal" title="ESTRELAS"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fky-qy-UIh" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
-                                                <rect key="frame" x="229" y="0.0" width="87" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="gNH-RC-VWh"/>
-                                                </constraints>
-                                                <state key="normal" title="CRESCENTE"/>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-CY-LSX" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
-                                                <rect key="frame" x="324" y="0.0" width="106" height="36"/>
+                                                <rect key="frame" x="45" y="0.0" width="106" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="5CU-Z7-Aas"/>
                                                 </constraints>
@@ -101,6 +80,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.92156862745098034" green="0.92549019607843142" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="orderButton" destination="jjf-CY-LSX" id="9C9-Hb-dWh"/>
+                <outlet property="sortButton" destination="vUU-RA-adm" id="NaR-QB-8PM"/>
+            </connections>
             <point key="canvasLocation" x="77.536231884057983" y="41.852678571428569"/>
         </tableViewCell>
     </objects>

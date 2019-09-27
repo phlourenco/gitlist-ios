@@ -392,9 +392,9 @@
 			isa = PBXGroup;
 			children = (
 				4BE6CE0A233C47E80079B327 /* FilterCell.swift */,
-				5E6FB5B8233E4A2C005D96C6 /* FilterSection.swift */,
-				5E6FB5B6233E4A23005D96C6 /* FilterCellViewModel.swift */,
 				4BE6CE0B233C47E80079B327 /* FilterCell.xib */,
+				5E6FB5B6233E4A23005D96C6 /* FilterCellViewModel.swift */,
+				5E6FB5B8233E4A2C005D96C6 /* FilterSection.swift */,
 			);
 			path = FilterCell;
 			sourceTree = "<group>";

@@ -10,6 +10,5 @@ import Foundation
 
 struct SearchResults<T: Codable>: Codable {
     var totalCount: Int
-    var incompleteResults: Bool
     var items: T
 }
