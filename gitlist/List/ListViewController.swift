@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ListView {
+    func showList()
+}
+
 class ListViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -30,6 +34,13 @@ class ListViewController: UIViewController {
 //        tableView.register(UINib(nibName: "FilterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FilterView")
         tableView.register(UINib(nibName: "ResetFilterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ResetFilterView")
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel?.getRepositories(next: false, showLoading: false)
     }
     
     @IBAction func filterAction(_ sender: Any) {
@@ -48,7 +59,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 4
+            return viewModel?.repositoryList.count ?? 0
         }
         return 0
     }
@@ -67,14 +78,26 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
             return cell
         } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath) as? RepositoryCell, let repo = viewModel?.repositoryList[indexPath.row] else {
+                return UITableViewCell()
+            }
+            cell.configure(repository: repo)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.showDetails.onNext(())
+        guard let repo = viewModel?.repositoryList[indexPath.row] else { return }
+        viewModel?.showDetails.onNext(repo)
+    }
+    
+}
+
+extension ListViewController: ListView {
+    
+    func showList() {
+        tableView.reloadData()
     }
     
 }

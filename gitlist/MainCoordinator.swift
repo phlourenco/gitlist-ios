@@ -31,13 +31,13 @@ class MainCoordinator: Coordinator {
     func showList() {
         let listViewController = ListViewController.loadFromNib()
         
-        let viewModel = ListViewModel()
+        let viewModel = ListViewModel(view: listViewController)
         viewModel.showFilter.subscribe(onNext: { _ in
             self.showFilter()
         }).disposed(by: disposeBag)
         
-        viewModel.showDetails.subscribe(onNext: { _ in
-            self.showDetails()
+        viewModel.showDetails.subscribe(onNext: { repository in
+            self.showDetails(repository: repository)
         }).disposed(by: disposeBag)
         
         listViewController.viewModel = viewModel
@@ -50,8 +50,9 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(filterViewController, animated: true)
     }
     
-    private func showDetails() {
+    private func showDetails(repository: Repository) {
         let detailViewController = DetailViewController.loadFromNib()
+        detailViewController.repository = repository
         navigationController.pushViewController(detailViewController, animated: true)
     }
 }

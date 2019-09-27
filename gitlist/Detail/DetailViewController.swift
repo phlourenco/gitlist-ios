@@ -1,5 +1,5 @@
 //
-//  RepositoryCell.swift
+//  DetailViewController.swift
 //  gitlist
 //
 //  Created by Paulo Lourenço on 25/09/19.
@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RepositoryCell: UITableViewCell {
+class DetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
@@ -28,32 +28,28 @@ class RepositoryCell: UITableViewCell {
     
     var repository: Repository?
     
-    // MARK: - View lifecycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        iconImageView.image = nil
-        nameLabel.text = ""
-        starsLabel.text = ""
-        followersLabel.text = ""
-        dateLabel.text = ""
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
     
-    // MARK: - Public methods
-    
-    func configure(repository: Repository) {
-        self.repository = repository
-        loadImage()
-        nameLabel.text = repository.name
-        starsLabel.text = "\(repository.stargazersCount)"
-        followersLabel.text = "\(repository.watchersCount)"
-        dateLabel.text = repository.updatedAt
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) 
+        fillDetails()
     }
     
     // MARK: - Private methods
     
-    private func loadImage() {
+    private func fillDetails() {
         guard let repo = repository else { return }
+        
+        nameLabel.text = repo.name
+        starsLabel.text = "\(repo.stargazersCount)"
+        followersLabel.text = "\(repo.watchersCount)"
+        dateLabel.text = repo.updatedAt
+
         
         URLSession.shared.rx
             .response(request: URLRequest(url: URL(string: repo.owner.avatarUrl)!))
@@ -65,5 +61,12 @@ class RepositoryCell: UITableViewCell {
             })
             .disposed(by: disposeBag)
     }
+
+    @IBAction private func shareAction(_ sender: Any) {
+    }
     
+    @IBAction private func backAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
