@@ -12,10 +12,6 @@ protocol FilterViewDelegate {
     func didChangeFilter(_ newFilter: Filter)
 }
 
-protocol FilterView: BaseDisplayLogic {
-    
-}
-
 class FilterViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -85,7 +81,3 @@ class FilterViewController: UIViewController {
     }
 
 }
-
-//extension FilterViewController: FilterView {
-//
-//}
