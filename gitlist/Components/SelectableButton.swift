@@ -12,6 +12,12 @@ class SelectableButton: UIButton {
     
     private let checkIcon = "\u{E876}"
     
+    override var isSelected: Bool {
+        didSet {
+            backgroundColor = isSelected ? .black : .clear
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -59,7 +65,6 @@ class SelectableButton: UIButton {
     private func tapAction(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             self.isSelected.toggle()
-            self.backgroundColor = self.isSelected ? .black : .clear
         }
     }
     

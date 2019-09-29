@@ -9,25 +9,12 @@
 import Foundation
 import RxSwift
 
-enum Order: String {
-    case asc, desc
-}
-
-enum Sort: String {
-    case stars, forks, updated
-}
-
-struct Filter {
-    var order: Order
-    var sort: Sort
-}
-
 class ListViewModel {
     
     // MARK: - Public properties
     
-    var showFilter = PublishSubject<Void>()
-    var showDetails = PublishSubject<Repository>()
+    var showFilter: ((Filter) -> Void)?
+    var showDetails: ((Repository) -> Void)?
     
     // MARK: - Private properties
     
@@ -36,7 +23,7 @@ class ListViewModel {
     private var repositoryList: [Repository] = []
     private let itemsPerPage = 20
     
-    var filter = Filter(order: .desc, sort: .stars)
+    var filter = Filter(order: .desc, sort: .updated)
     
     // MARK: - Constructor
     
@@ -77,6 +64,11 @@ class ListViewModel {
         fetchRepositories(next: true)
     }
     
+    func setFilter(_ filter: Filter) {
+        self.filter = filter
+        fetchRepositories(next: false)
+    }
+    
     // MARK: - Private methods
     
     private func handleResults(_ results: SearchResults<[Repository]>) {
@@ -89,7 +81,9 @@ class ListViewModel {
     private func handleError(_ error: Error) {
         self.view?.hideScreenLoading()
         self.view?.hidePaginationLoading()
-        self.view?.showError(title: "Erro", message: "Ocorreu um erro. Verifique sua conexão e tente novamente.")
+        self.view?.showError(title: "Erro", message: "Ocorreu um erro. Verifique sua conexão e tente novamente.", tryAgainAction: {
+            self.fetchRepositories(next: false)
+        })
     }
     
     private func getNextPageNumber() -> Int {

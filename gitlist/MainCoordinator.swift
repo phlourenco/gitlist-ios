@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
@@ -15,7 +14,6 @@ protocol Coordinator {
 }
 
 class MainCoordinator: Coordinator {
-    private let disposeBag = DisposeBag()
     private var window = UIWindow(frame: UIScreen.main.bounds)
     
     var navigationController = UINavigationController()
@@ -32,21 +30,18 @@ class MainCoordinator: Coordinator {
         let listViewController = ListViewController.loadFromNib()
         
         let viewModel = ListViewModel(view: listViewController)
-        viewModel.showFilter.subscribe(onNext: { _ in
-            self.showFilter()
-        }).disposed(by: disposeBag)
-        
-        viewModel.showDetails.subscribe(onNext: { repository in
-            self.showDetails(repository: repository)
-        }).disposed(by: disposeBag)
+        viewModel.showFilter = showFilter
+        viewModel.showDetails = showDetails
         
         listViewController.viewModel = viewModel
-        
         navigationController.pushViewController(listViewController, animated: true)
     }
     
-    private func showFilter() {
+    private func showFilter(_ filter: Filter) {
         let filterViewController = FilterViewController.loadFromNib()
+        filterViewController.delegate = (navigationController.viewControllers.first as? ListViewController)
+        let viewModel = FilterViewModel(filter: filter)
+        filterViewController.viewModel = viewModel
         navigationController.pushViewController(filterViewController, animated: true)
     }
     

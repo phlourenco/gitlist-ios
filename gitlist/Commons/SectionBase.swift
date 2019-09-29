@@ -14,7 +14,7 @@ protocol CellViewModel {
 
 class ConfigurableCell: UITableViewCell {
 
-    func configure(viewModel: CellViewModel) {
+    func configure(viewModel: CellViewModel, delegate: Any?) {
         fatalError("Can't call super! Must implement your own 'configure' method.")
     }
     

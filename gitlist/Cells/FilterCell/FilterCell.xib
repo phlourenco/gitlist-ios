@@ -40,6 +40,9 @@
                                                     <constraint firstAttribute="height" constant="36" id="db2-ae-KrI"/>
                                                 </constraints>
                                                 <state key="normal" title="DATA"/>
+                                                <connections>
+                                                    <action selector="filterAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vJw-r4-xsp"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-CY-LSX" customClass="OutlineButton" customModule="gitlist" customModuleProvider="target">
                                                 <rect key="frame" x="45" y="0.0" width="106" height="36"/>
@@ -47,6 +50,9 @@
                                                     <constraint firstAttribute="height" constant="36" id="5CU-Z7-Aas"/>
                                                 </constraints>
                                                 <state key="normal" title="DECRESCENTE"/>
+                                                <connections>
+                                                    <action selector="filterAction:" destination="KGk-i7-Jjw" eventType="touchDragInside" id="TYp-eE-5Au"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

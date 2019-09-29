@@ -41,7 +41,7 @@ class RepositoryCell: ConfigurableCell {
     
     // MARK: - Public methods
     
-    override func configure(viewModel: CellViewModel) {
+    override func configure(viewModel: CellViewModel, delegate: Any?) {
         guard let viewModel = viewModel as? RepositoryCellViewModel else { return }
 
         repositoryCellViewModel = viewModel
@@ -50,7 +50,7 @@ class RepositoryCell: ConfigurableCell {
         nameLabel.text = viewModel.repository.name
         starsLabel.text = "\(viewModel.repository.stargazersCount)"
         followersLabel.text = "\(viewModel.repository.watchersCount)"
-        dateLabel.text = "\(viewModel.repository.updatedAt.getDifferenceInDays(date: Date()))"
+        dateLabel.text = viewModel.getLastUpdateDate()
     }
     
     // MARK: - Private methods

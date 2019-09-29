@@ -39,4 +39,11 @@ class RepositoryCellViewModel: CellViewModel {
             .disposed(by: disposeBag)
     }
     
+    // MARK: - Constructor
+    
+    func getLastUpdateDate() -> String {
+        let days = repository.updatedAt.getDifferenceInDays(date: Date())
+        return days == 0 ? "Hoje" : "\(days) dia\(days > 1 ? "s" : "")"
+    }
+    
 }

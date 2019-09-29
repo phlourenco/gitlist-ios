@@ -18,6 +18,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="gitlist" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="sortButtons" destination="ztN-Qz-s4S" collectionClass="NSMutableArray" id="Ffo-EB-6QR"/>
+                <outletCollection property="sortButtons" destination="p3V-hx-4Si" collectionClass="NSMutableArray" id="SiX-5Y-AJt"/>
+                <outletCollection property="sortButtons" destination="KTP-Py-jDI" collectionClass="NSMutableArray" id="cZo-io-Meo"/>
+                <outletCollection property="orderButtons" destination="Q6N-2D-lUj" collectionClass="NSMutableArray" id="3vU-3K-BhS"/>
+                <outletCollection property="orderButtons" destination="XxC-N2-oWl" collectionClass="NSMutableArray" id="8V8-Jj-l3m"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,13 +46,16 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1KO-yz-NGV">
                             <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3V-hx-4Si" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3V-hx-4Si" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
                                     <rect key="frame" x="116" y="0.0" width="130" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="130" id="GeK-Ws-Ixn"/>
                                         <constraint firstAttribute="height" constant="40" id="viZ-hh-PZn"/>
                                     </constraints>
                                     <state key="normal" title="SEGUIDORES"/>
+                                    <connections>
+                                        <action selector="sortAction:" destination="-1" eventType="touchUpInside" id="6Wa-8O-N5D"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztN-Qz-s4S" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
@@ -56,14 +64,20 @@
                                         <constraint firstAttribute="width" constant="98" id="SDB-D1-FfX"/>
                                     </constraints>
                                     <state key="normal" title="ESTRELAS"/>
+                                    <connections>
+                                        <action selector="sortAction:" destination="-1" eventType="touchUpInside" id="yXc-YP-ASK"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTP-Py-jDI" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTP-Py-jDI" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
                                     <rect key="frame" x="264" y="0.0" width="79" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Zc9-3G-Jh8"/>
                                         <constraint firstAttribute="width" constant="79" id="qO4-mq-dZP"/>
                                     </constraints>
                                     <state key="normal" title="DATA"/>
+                                    <connections>
+                                        <action selector="sortAction:" destination="-1" eventType="touchUpInside" id="fcX-Iw-X8q"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,19 +109,22 @@
                     <color key="textColor" red="0.63137254899999995" green="0.65098039220000004" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-qb-faw">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-qb-faw">
                     <rect key="frame" x="16" y="236" width="343" height="48"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlN-dj-WJY">
                             <rect key="frame" x="0.0" y="0.0" width="278" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-N2-oWl" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-N2-oWl" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
                                     <rect key="frame" x="148" y="0.0" width="130" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="130" id="WHK-oZ-ck3"/>
                                         <constraint firstAttribute="height" constant="40" id="hfY-mC-wiR"/>
                                     </constraints>
                                     <state key="normal" title="DECRESCENTE"/>
+                                    <connections>
+                                        <action selector="orderAction:" destination="-1" eventType="touchUpInside" id="RFo-vQ-h30"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6N-2D-lUj" customClass="SelectableButton" customModule="gitlist" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
@@ -116,6 +133,9 @@
                                         <constraint firstAttribute="height" constant="40" id="P47-F7-ca7"/>
                                     </constraints>
                                     <state key="normal" title="CRESCENTE"/>
+                                    <connections>
+                                        <action selector="orderAction:" destination="-1" eventType="touchUpInside" id="fOd-7Z-n2A"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -177,12 +197,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="backAction:" destination="-1" id="4bQ-0q-eSi"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Limpar" id="Sdv-Fd-4zJ">
-                                <color key="tintColor" red="0.3921568627" green="1" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="clearAction:" destination="-1" id="ISu-rb-sJA"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

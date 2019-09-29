@@ -9,15 +9,20 @@
 import UIKit
 
 protocol BaseDisplayLogic {
-    func showError(title: String?, message: String?)
+    func showError(title: String?, message: String?, tryAgainAction: (()->Void)?)
     func showScreenLoading()
     func hideScreenLoading()
 }
 
 extension BaseDisplayLogic where Self: UIViewController {
     
-    func showError(title: String?, message: String?) {
+    func showError(title: String?, message: String?, tryAgainAction: (()->Void)?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let tryAgainAction = tryAgainAction {
+            alertController.addAction(UIAlertAction(title: "Tentar novamente", style: .cancel, handler: { action in
+                tryAgainAction()
+            }))
+        }
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }

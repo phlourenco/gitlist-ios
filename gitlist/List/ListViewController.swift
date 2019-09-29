@@ -37,6 +37,7 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        viewModel?.fetchRepositories(next: false)
     }
     
     private func setupTableView() {
@@ -49,13 +50,9 @@ class ListViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        viewModel?.fetchRepositories(next: false)
-    }
-    
     @IBAction func filterAction(_ sender: Any) {
-        viewModel?.showFilter.onNext(())
+        guard let viewModel = viewModel else { return }
+        viewModel.showFilter?(viewModel.filter)
     }
     
     @objc
@@ -87,14 +84,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ConfigurableCell else { return UITableViewCell() }
         
-        cell.configure(viewModel: section.getViewModel(forRow: indexPath.row))
+        cell.configure(viewModel: section.getViewModel(forRow: indexPath.row), delegate: self)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel, let cellViewModel = viewModel.getSections()[indexPath.section].getViewModel(forRow: indexPath.row) as? RepositoryCellViewModel else { return }
         
-        viewModel.showDetails.onNext(cellViewModel.repository)
+        viewModel.showDetails?(cellViewModel.repository)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -116,6 +113,22 @@ extension ListViewController: ListView {
     func showList() {
         refreshControl.endRefreshing()
         tableView.reloadData()
+    }
+    
+}
+
+extension ListViewController: FilterCellDelegate {
+    
+    func didTapFilterCase() {
+        filterAction(())
+    }
+    
+}
+
+extension ListViewController: FilterViewDelegate {
+    
+    func didChangeFilter(_ newFilter: Filter) {
+        viewModel?.setFilter(newFilter)
     }
     
 }
