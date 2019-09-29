@@ -23,20 +23,20 @@ class FilterCellViewModel: CellViewModel {
     func getSortTitle() -> String {
         switch filter.sort {
         case .stars:
-            return "ESTRELAS"
+            return NSLocalizedString("stars", comment: "")
         case .forks:
-            return "SEGUIDORES"
+            return NSLocalizedString("followers", comment: "").uppercased()
         case .updated:
-            return "DATA"
+            return NSLocalizedString("date", comment: "")
         }
     }
     
     func getOrderTitle() -> String {
         switch filter.order {
         case .asc:
-            return "CRESCENTE"
+            return NSLocalizedString("ascending", comment: "")
         case .desc:
-            return "DECRESCENTE"
+            return NSLocalizedString("descending", comment: "")
         }
     }
     

@@ -18,12 +18,42 @@ class DetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    
+    @IBOutlet weak var navigationBar: UINavigationBar! {
+        didSet {
+            navigationBar.items?.first?.title = NSLocalizedString("detail", comment: "")
+        }
+    }
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var starsTitleLabel: UILabel! {
+        didSet {
+            starsTitleLabel.text = NSLocalizedString("stars", comment: "").capitalized
+        }
+    }
+    
+    @IBOutlet weak var followersTitleLabel: UILabel! {
+        didSet {
+            followersTitleLabel.text = NSLocalizedString("followers", comment: "")
+        }
+    }
+    
+    @IBOutlet weak var dateTitleLabel: UILabel! {
+        didSet {
+            dateTitleLabel.text = NSLocalizedString("last_commit", comment: "")
+        }
+    }
+    
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var readmeTextView: UITextView!
+    @IBOutlet weak var shareButton: UIButton! {
+        didSet {
+            shareButton.setTitle(NSLocalizedString("share", comment: ""), for: .normal)
+        }
+    }
     
     // MARK: - Private properties
     

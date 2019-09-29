@@ -87,6 +87,7 @@
             <color key="backgroundColor" red="0.92156862745098034" green="0.92549019607843142" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="filteringLabel" destination="Z40-Ac-IsP" id="JTz-do-r5S"/>
                 <outlet property="orderButton" destination="jjf-CY-LSX" id="9C9-Hb-dWh"/>
                 <outlet property="sortButton" destination="vUU-RA-adm" id="NaR-QB-8PM"/>
             </connections>

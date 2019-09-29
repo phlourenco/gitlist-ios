@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  gitlist
+
+  Created by Paulo Lourenço on 29/09/19.
+  Copyright © 2019 Paulo Lourenço. All rights reserved.
+*/
+
+"filtering" = "FILTERING";
+"total_stars" = "Total of stars";
+"followers" = "Followers";
+"last_commit" = "Last commit";
+
+"filter" = "Filter";
+"filters" = "FILTERS";
+"order" = "ORDER";
+"stars" = "STARS";
+"date" = "DATE";
+"ascending" = "ASCENDING";
+"descending" = "DESCENDING";
+"apply_filter" = "APPLY FILTER";
+
+"detail" = "Details";
+"share" = "SHARE";
+
+"today" = "Today";
+

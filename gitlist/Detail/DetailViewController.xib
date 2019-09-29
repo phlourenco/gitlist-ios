@@ -18,11 +18,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="gitlist" customModuleProvider="target">
             <connections>
                 <outlet property="dateLabel" destination="AJQ-Qu-eGE" id="OCi-Kj-Kvs"/>
+                <outlet property="dateTitleLabel" destination="TZX-uG-221" id="TFx-pb-s63"/>
                 <outlet property="followersLabel" destination="VbR-dU-DhM" id="Euk-0O-3FV"/>
+                <outlet property="followersTitleLabel" destination="3DX-Up-EpR" id="sPW-vj-wEa"/>
                 <outlet property="iconImageView" destination="dRT-4j-xjS" id="jgg-6V-57D"/>
                 <outlet property="nameLabel" destination="EBt-ls-yeB" id="LPw-oQ-gF3"/>
+                <outlet property="navigationBar" destination="rne-ar-nLw" id="vai-eH-jGx"/>
                 <outlet property="readmeTextView" destination="cwf-x3-vSx" id="O5t-pl-Cfr"/>
+                <outlet property="shareButton" destination="PHm-dw-q0R" id="nBp-Kp-0iR"/>
                 <outlet property="starsLabel" destination="GiW-hF-HSZ" id="MxY-Vh-t5S"/>
+                <outlet property="starsTitleLabel" destination="bR4-aP-o0O" id="wMR-w2-8z0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

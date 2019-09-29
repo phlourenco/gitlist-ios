@@ -43,7 +43,13 @@ class RepositoryCellViewModel: CellViewModel {
     
     func getLastUpdateDate() -> String {
         let days = repository.updatedAt.getDifferenceInDays(date: Date())
-        return days == 0 ? "Hoje" : "\(days) dia\(days > 1 ? "s" : "")"
+        let todayStr = NSLocalizedString("today", comment: "")
+        var dayStr = NSLocalizedString("day", comment: "")
+        if days > 1 {
+            dayStr.append("s")
+        }
+        
+        return days == 0 ? todayStr : "\(days) \(dayStr)"
     }
     
 }

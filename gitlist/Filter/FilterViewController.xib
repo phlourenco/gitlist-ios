@@ -17,6 +17,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="gitlist" customModuleProvider="target">
             <connections>
+                <outlet property="applyFilterButton" destination="Nai-zn-ZHT" id="ouz-Gl-VJd"/>
+                <outlet property="filtersLabel" destination="RvY-WZ-Ldq" id="Nyk-d4-Aia"/>
+                <outlet property="navigationBar" destination="OO5-ea-DqT" id="kMb-B6-AGs"/>
+                <outlet property="orderLabel" destination="Wfz-DA-qlw" id="q3d-s6-vMZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="sortButtons" destination="ztN-Qz-s4S" collectionClass="NSMutableArray" id="Ffo-EB-6QR"/>
                 <outletCollection property="sortButtons" destination="p3V-hx-4Si" collectionClass="NSMutableArray" id="SiX-5Y-AJt"/>

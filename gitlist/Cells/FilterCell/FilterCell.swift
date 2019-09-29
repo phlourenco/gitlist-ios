@@ -16,8 +16,23 @@ class FilterCell: ConfigurableCell {
 
     // MARK: - IBOutlets
     
-    @IBOutlet weak var sortButton: OutlineButton!
-    @IBOutlet weak var orderButton: OutlineButton!
+    @IBOutlet weak var filteringLabel: UILabel! {
+        didSet {
+            filteringLabel.text = NSLocalizedString("filtering", comment: "")
+        }
+    }
+    
+    @IBOutlet weak var sortButton: OutlineButton! {
+        didSet {
+            sortButton.setTitle(NSLocalizedString("sort", comment: ""), for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var orderButton: OutlineButton! {
+        didSet {
+            orderButton.setTitle(NSLocalizedString("order", comment: ""), for: .normal)
+        }
+    }
     
     // MARK: - Properties
     

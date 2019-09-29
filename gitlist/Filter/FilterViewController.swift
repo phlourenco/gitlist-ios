@@ -16,8 +16,44 @@ class FilterViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var sortButtons: [SelectableButton]!
-    @IBOutlet var orderButtons: [SelectableButton]!
+    @IBOutlet weak var navigationBar: UINavigationBar! {
+        didSet {
+            navigationBar.items?.first?.title = NSLocalizedString("filter", comment: "")
+        }
+    }
+    
+    @IBOutlet weak var filtersLabel: UILabel! {
+        didSet {
+            filtersLabel.text = NSLocalizedString("filters", comment: "")
+        }
+    }
+    
+    @IBOutlet weak var orderLabel: UILabel! {
+        didSet {
+            orderLabel.text = NSLocalizedString("order", comment: "")
+        }
+    }
+    
+    @IBOutlet var sortButtons: [SelectableButton]! {
+        didSet {
+            sortButtons[0].setTitle(NSLocalizedString("stars", comment: ""), for: .normal)
+            sortButtons[1].setTitle(NSLocalizedString("followers", comment: "").uppercased(), for: .normal)
+            sortButtons[2].setTitle(NSLocalizedString("date", comment: ""), for: .normal)
+        }
+    }
+    
+    @IBOutlet var orderButtons: [SelectableButton]!{
+        didSet {
+            orderButtons[0].setTitle(NSLocalizedString("ascending", comment: ""), for: .normal)
+            orderButtons[1].setTitle(NSLocalizedString("descending", comment: ""), for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var applyFilterButton: UIButton! {
+        didSet {
+            applyFilterButton.setTitle(NSLocalizedString("apply_filter", comment: ""), for: .normal)
+        }
+    }
     
     // MARK: - Private properties
     

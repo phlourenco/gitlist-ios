@@ -132,10 +132,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateLabel" destination="bZA-2m-AyU" id="MHJ-Bx-8xu"/>
+                <outlet property="dateTitleLabel" destination="WJd-xW-MsT" id="p4c-Ri-DeK"/>
                 <outlet property="followersLabel" destination="FE3-nO-02t" id="Stf-xr-Ueo"/>
+                <outlet property="followersTitleLabel" destination="oec-fd-6Kf" id="7NQ-Wa-f0U"/>
                 <outlet property="iconImageView" destination="gyk-x4-F6D" id="tnZ-4h-rOe"/>
                 <outlet property="nameLabel" destination="3qp-ph-34S" id="XX5-JF-LIK"/>
                 <outlet property="starsLabel" destination="CuZ-a9-sW1" id="qGt-K8-8RC"/>
+                <outlet property="starsTitleLabel" destination="73s-eU-ZVb" id="1Dg-Of-b7h"/>
             </connections>
             <point key="canvasLocation" x="177.536231884058" y="181.13839285714286"/>
         </tableViewCell>
