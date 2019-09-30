@@ -11,8 +11,6 @@ import RxSwift
 
 protocol GithubAPIDataSource {
     func searchRepositories(query: String, sort: String, order: String, page: Int, itemsPerPage: Int) -> Observable<SearchResults<[Repository]>>
-    
     func getReadme(ownerName: String, repositoryName: String) -> Observable<RepositoryContent>
-    
     func getContent(url: URL) -> Observable<String>
 }

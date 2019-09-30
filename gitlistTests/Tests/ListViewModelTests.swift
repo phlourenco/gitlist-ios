@@ -19,6 +19,7 @@ class ListViewModelTests: XCTestCase {
         let sut = ListViewModel(view: listViewMock, dataSource: apiMock)
         sut.fetchRepositories(next: false)
         XCTAssertTrue(listViewMock.calledShowError)
+        XCTAssertEqual(listViewMock.calledShowErrorCount, 1)
     }
     
     func testErrorTryAgain() {
