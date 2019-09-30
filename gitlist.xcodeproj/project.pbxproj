@@ -37,7 +37,6 @@
 		4BE6CDAD233B10690079B327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CDAB233B10690079B327 /* LaunchScreen.storyboard */; };
 		4BE6CDDA233C17A40079B327 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CDD8233C17A40079B327 /* ListViewController.swift */; };
 		4BE6CDDB233C17A40079B327 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CDD9233C17A40079B327 /* ListViewController.xib */; };
-		4BE6CDDD233C18A30079B327 /* Github_Teste.md in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CDDC233C18A30079B327 /* Github_Teste.md */; };
 		4BE6CDE0233C19040079B327 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CDDE233C19040079B327 /* RepositoryCell.swift */; };
 		4BE6CDE1233C19040079B327 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE6CDDF233C19040079B327 /* RepositoryCell.xib */; };
 		4BE6CDED233C250A0079B327 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE6CDEC233C250A0079B327 /* UIViewController.swift */; };
@@ -107,7 +106,6 @@
 		4BE6CDB9233B106A0079B327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BE6CDD8233C17A40079B327 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4BE6CDD9233C17A40079B327 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
-		4BE6CDDC233C18A30079B327 /* Github_Teste.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Github_Teste.md; sourceTree = "<group>"; };
 		4BE6CDDE233C19040079B327 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		4BE6CDDF233C19040079B327 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		4BE6CDEC233C250A0079B327 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 		4BE6CDA1233B10680079B327 /* gitlist */ = {
 			isa = PBXGroup;
 			children = (
-				4BE6CDDC233C18A30079B327 /* Github_Teste.md */,
 				4BEC3408233D819D003CFCA3 /* MainCoordinator.swift */,
 				4BA1D454233DA465000A1F70 /* Services */,
 				4BA1D44F233DA411000A1F70 /* Models */,
@@ -506,7 +503,6 @@
 				4BE6CDFC233C33B50079B327 /* Montserrat-SemiBold.ttf in Resources */,
 				4BE6CE0D233C47E80079B327 /* FilterCell.xib in Resources */,
 				4BE6CDAD233B10690079B327 /* LaunchScreen.storyboard in Resources */,
-				4BE6CDDD233C18A30079B327 /* Github_Teste.md in Resources */,
 				4BE6CE08233C43BE0079B327 /* DetailViewController.xib in Resources */,
 				4BE6CDFE233C33B50079B327 /* Montserrat-Regular.ttf in Resources */,
 				4BE6CDAA233B10690079B327 /* Assets.xcassets in Resources */,

@@ -59,5 +59,4 @@ class ListViewModelTests: XCTestCase {
         XCTAssertEqual(sut.filter.sort, .stars)
     }
     
-    
 }
