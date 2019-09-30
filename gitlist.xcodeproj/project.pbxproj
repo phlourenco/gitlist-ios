@@ -105,8 +105,6 @@
 		4BE6CDAE233B10690079B327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BE6CDB3233B106A0079B327 /* gitlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE6CDB9233B106A0079B327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BE6CDC2233B106A0079B327 /* gitlistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitlistUITests.swift; sourceTree = "<group>"; };
-		4BE6CDC4233B106A0079B327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BE6CDD8233C17A40079B327 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4BE6CDD9233C17A40079B327 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		4BE6CDDC233C18A30079B327 /* Github_Teste.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Github_Teste.md; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 			children = (
 				4BE6CDA1233B10680079B327 /* gitlist */,
 				4BE6CDB6233B106A0079B327 /* gitlistTests */,
-				4BE6CDC1233B106A0079B327 /* gitlistUITests */,
 				4BE6CDA0233B10680079B327 /* Products */,
 				4BEC340C233D8298003CFCA3 /* Frameworks */,
 			);
@@ -309,15 +306,6 @@
 				4BE6CDB9233B106A0079B327 /* Info.plist */,
 			);
 			path = gitlistTests;
-			sourceTree = "<group>";
-		};
-		4BE6CDC1233B106A0079B327 /* gitlistUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4BE6CDC2233B106A0079B327 /* gitlistUITests.swift */,
-				4BE6CDC4233B106A0079B327 /* Info.plist */,
-			);
-			path = gitlistUITests;
 			sourceTree = "<group>";
 		};
 		4BE6CDE2233C1DB90079B327 /* Cells */ = {
@@ -436,7 +424,8 @@
 				4BE6CD9B233B10680079B327 /* Sources */,
 				4BE6CD9C233B10680079B327 /* Frameworks */,
 				4BE6CD9D233B10680079B327 /* Resources */,
-				4BA1D448233D8556000A1F70 /* ShellScript */,
+				4BA1D448233D8556000A1F70 /* CARTHAGE - Run Script */,
+				5E49FF002342193600F30673 /* SWIFTLINT - Run Script */,
 			);
 			buildRules = (
 			);
@@ -537,7 +526,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4BA1D448233D8556000A1F70 /* ShellScript */ = {
+		4BA1D448233D8556000A1F70 /* CARTHAGE - Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -551,6 +540,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 			);
+			name = "CARTHAGE - Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -558,6 +548,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "carthage copy-frameworks\n";
+		};
+		5E49FF002342193600F30673 /* SWIFTLINT - Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SWIFTLINT - Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

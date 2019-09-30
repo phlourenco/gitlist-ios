@@ -2,24 +2,24 @@
 //  BaseDisplayLogic.swift
 //  gitlist
 //
-//  Created by Paulo Henrique Lima Lourenco on 27/09/19.
+//  Created by Paulo Lourenço on 27/09/19.
 //  Copyright © 2019 Paulo Lourenço. All rights reserved.
 //
 
 import UIKit
 
 protocol BaseDisplayLogic {
-    func showError(title: String?, message: String?, tryAgainAction: (()->Void)?)
+    func showError(title: String?, message: String?, tryAgainAction: (() -> Void)?)
     func showScreenLoading()
     func hideScreenLoading()
 }
 
 extension BaseDisplayLogic where Self: UIViewController {
     
-    func showError(title: String?, message: String?, tryAgainAction: (()->Void)?) {
+    func showError(title: String?, message: String?, tryAgainAction: (() -> Void)?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         if let tryAgainAction = tryAgainAction {
-            alertController.addAction(UIAlertAction(title: "Tentar novamente", style: .default, handler: { action in
+            alertController.addAction(UIAlertAction(title: "Tentar novamente", style: .default, handler: { _ in
                 tryAgainAction()
             }))
         }

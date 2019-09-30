@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FilterCellDelegate {
+protocol FilterCellDelegate: class {
     func didTapFilterCase()
 }
 
@@ -36,7 +36,7 @@ class FilterCell: ConfigurableCell {
     
     // MARK: - Properties
     
-    var delegate: FilterCellDelegate?
+    weak var delegate: FilterCellDelegate?
     
     // MARK: - Methods
     

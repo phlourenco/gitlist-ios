@@ -22,7 +22,6 @@ class OutlineButton: UIButton {
         configure()
     }
     
-    
     private func configure() {
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
         backgroundColor = .clear

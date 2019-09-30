@@ -18,7 +18,6 @@ class DetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    
     @IBOutlet weak var navigationBar: UINavigationBar! {
         didSet {
             navigationBar.items?.first?.title = NSLocalizedString("detail", comment: "")

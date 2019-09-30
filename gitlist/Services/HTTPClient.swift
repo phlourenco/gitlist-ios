@@ -37,7 +37,7 @@ class HTTPClient {
         urlRequest.allHTTPHeaderFields = headers
         urlRequest.httpMethod = method.rawValue
         
-        let ob: Observable<T> = Observable.create { observer in
+        let obs: Observable<T> = Observable.create { observer in
             let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 if let error = error {
                     observer.onError(error)
@@ -69,34 +69,7 @@ class HTTPClient {
         .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
         .observeOn(MainScheduler.instance)
         
-        return ob
-
-        
-//        return Promise<T> { seal in
-//            let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-//                if let error = error {
-//                    seal.reject(error)
-//                    return
-//                }
-//
-//                guard let response = response as? HTTPURLResponse else {
-//                    seal.reject(Errors.unknownStatusCode)
-//                    return
-//                }
-//
-//                switch response.statusCode {
-//                case 200..<299:
-//                    if let parsedObj = data?.parse(asObject: T.self) {
-//                        seal.fulfill(parsedObj)
-//                    } else {
-//                        seal.reject(Errors.parseError)
-//                    }
-//                default:
-//                    seal.reject(Errors.errorStatusCode(response.statusCode))
-//                }
-//            }
-//            task.resume()
-//        }
+        return obs
     }
     
 }

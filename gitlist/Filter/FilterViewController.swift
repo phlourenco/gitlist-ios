@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FilterViewDelegate {
+protocol FilterViewDelegate: class {
     func didChangeFilter(_ newFilter: Filter)
 }
 
@@ -42,7 +42,7 @@ class FilterViewController: UIViewController {
         }
     }
     
-    @IBOutlet var orderButtons: [SelectableButton]!{
+    @IBOutlet var orderButtons: [SelectableButton]! {
         didSet {
             orderButtons[0].setTitle(NSLocalizedString("ascending", comment: ""), for: .normal)
             orderButtons[1].setTitle(NSLocalizedString("descending", comment: ""), for: .normal)
@@ -61,7 +61,7 @@ class FilterViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var delegate: FilterViewDelegate?
+    weak var delegate: FilterViewDelegate?
     
     var viewModel: FilterViewModel? {
         didSet {

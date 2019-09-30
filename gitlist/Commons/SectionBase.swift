@@ -2,7 +2,7 @@
 //  SectionBase.swift
 //  gitlist
 //
-//  Created by Paulo Henrique Lima Lourenco on 27/09/19.
+//  Created by Paulo Lourenço on 27/09/19.
 //  Copyright © 2019 Paulo Lourenço. All rights reserved.
 //
 

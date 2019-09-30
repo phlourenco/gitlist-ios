@@ -40,7 +40,6 @@ class GithubAPI: GithubAPIDataSource {
                     observer.onNext(str)
                 })
                 .disposed(by: self.disposeBag)
-
             
             return Disposables.create { }
         })
