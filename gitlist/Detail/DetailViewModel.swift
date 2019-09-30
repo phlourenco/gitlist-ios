@@ -34,20 +34,11 @@ class DetailViewModel {
     func getReadme() {
         dataSource.getReadme(ownerName: repository.owner.login, repositoryName: repository.name)
             .subscribe(onNext: { repositoryContent in
-                
-                URLSession.shared.rx
-                    .response(request: URLRequest(url: repositoryContent.downloadUrl))
-                    .subscribeOn(MainScheduler.instance)
-                    .subscribe(onNext: { [weak self] response in
-                        let str = String(data: response.data, encoding: .utf8) ?? ""
-                        DispatchQueue.main.async {
-                            self?.view.showReadme( str )
-                        }
-                    })
-                    .disposed(by: self.disposeBag)
-
-//                let data = Data(base64Encoded: repositoryContent.content) ?? Data()
-//                self.view.showReadme( String(data: data, encoding: .utf8) ?? "" )
+                self.dataSource.getContent(url: repositoryContent.downloadUrl).subscribe(onNext: { [weak self] str in
+                    DispatchQueue.main.async {
+                        self?.view.showReadme( str )
+                    }
+                }).disposed(by: self.disposeBag)
             }).disposed(by: disposeBag)
     }
     

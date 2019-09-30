@@ -30,13 +30,15 @@ class RepositoryCellViewModel: CellViewModel {
     init(repository: Repository) {
         self.repository = repository
         
-        URLSession.shared.rx
-            .response(request: URLRequest(url: URL(string: repository.owner.avatarUrl)!))
-            .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] response in
-                self?.image.accept(UIImage(data: response.data))
-            })
-            .disposed(by: disposeBag)
+        if let avatarUrl = repository.owner.avatarUrl {
+            URLSession.shared.rx
+                .response(request: URLRequest(url: URL(string: avatarUrl)!))
+                .subscribeOn(MainScheduler.instance)
+                .subscribe(onNext: { [weak self] response in
+                    self?.image.accept(UIImage(data: response.data))
+                })
+                .disposed(by: disposeBag)
+        }
     }
     
     // MARK: - Constructor

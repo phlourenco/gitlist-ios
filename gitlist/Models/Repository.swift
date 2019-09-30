@@ -18,10 +18,9 @@ struct Repository: Codable {
 
 struct Owner: Codable {
     var login: String
-    var avatarUrl: String
+    var avatarUrl: String?
 }
 
 struct RepositoryContent: Codable {
     var downloadUrl: URL
-    var content: String
 }

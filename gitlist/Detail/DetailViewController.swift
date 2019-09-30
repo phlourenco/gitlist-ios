@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol DetailView: BaseDisplayLogic {
+protocol DetailView {
     func showReadme(_ str: String)
 }
 
@@ -85,16 +85,17 @@ class DetailViewController: UIViewController {
         followersLabel.text = "\(repo.watchersCount)"
         dateLabel.text = "\(repo.updatedAt.getDifferenceInDays(date: Date()))"
 
-        
-        URLSession.shared.rx
-            .response(request: URLRequest(url: URL(string: repo.owner.avatarUrl)!))
-            .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] response in
-                DispatchQueue.main.async {
-                    self?.iconImageView.image = UIImage(data: response.data)
-                }
-            })
-            .disposed(by: disposeBag)
+        if let avatarUrl = repo.owner.avatarUrl {
+            URLSession.shared.rx
+                .response(request: URLRequest(url: URL(string: avatarUrl)!))
+                .subscribeOn(MainScheduler.instance)
+                .subscribe(onNext: { [weak self] response in
+                    DispatchQueue.main.async {
+                        self?.iconImageView.image = UIImage(data: response.data)
+                    }
+                })
+                .disposed(by: disposeBag)
+        }
     }
 
     @IBAction private func shareAction(_ sender: Any) {
